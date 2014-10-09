@@ -1,0 +1,6 @@
+program finance {
+	version VERS {
+		float updateRate(float value) = 1;
+		float convert_x2y(float value) = 2;
+	} = 3;
+} = 0x20002000;
