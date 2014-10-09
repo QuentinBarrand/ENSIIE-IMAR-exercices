@@ -27,19 +27,13 @@ main(int argc, char** argv)
 	float floatArgument;
 	floatArgument = atof(argv[1]);
 
-	while(1)
+	float *nby;
+	
+	if((nby = updaterate_3(&floatArgument, cl)) == NULL)
 	{
-		float *nby, *nbx = &floatArgument;
-		
-		if((nby = updaterate_3(nbx, cl)) == NULL)
-		{
-			clnt_perror(cl, server);
-			exit(2);
-		}
-
-		printf("%5.2e X font %5.2e Y.\r", *nbx, *nby);
-		fflush(stdout);
-		sleep(2);
+		clnt_perror(cl, server);
+		exit(2);
 	}
 
+	printf("Taux mis à jour à 1 X = %5.2e Y.\n", floatArgument, *nby);
 }

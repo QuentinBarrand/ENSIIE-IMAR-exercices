@@ -29,15 +29,15 @@ main(int argc, char** argv)
 
 	while(1)
 	{
-		float *nby, *nbx = &floatArgument;
+		float *nby;
 		
-		if((nby = convert_x2y_3(nbx, cl)) == NULL)
+		if((nby = convert_x2y_3(&floatArgument, cl)) == NULL)
 		{
 			clnt_perror(cl, server);
 			exit(2);
 		}
 
-		printf("%5.2e X font %5.2e Y.\r", *nbx, *nby);
+		printf("%5.2e X font %5.2e Y.\r", floatArgument, *nby);
 		fflush(stdout);
 		sleep(2);
 	}
